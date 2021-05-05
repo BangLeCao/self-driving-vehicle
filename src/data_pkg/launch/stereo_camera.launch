@@ -1,0 +1,49 @@
+<launch>
+
+   <node pkg="camera1394stereo" type="camera1394stereo_node" name="camera1394stereo_node" output="screen" >
+    <param name="video_mode" value="format7_mode3" />
+    <param name="format7_color_coding" value="mono16" />
+    <param name="bayer_pattern" value="grbg" />
+    <param name="bayer_method" value="" />
+    <param name="stereo_method" value="Interlaced" />
+    <param name="auto_frame_rate_feature" value="3" />
+    <param name="frame_rate_feature" value="1424" />
+    <!-- 48fps (480), 30fps(1040), 25fps(1194), 20fps (1424), 15fps(1672), 10fps(2052), 5fps(2594) -->
+    <param name="camera_info_url_left" value="file:///home/nguyen/thesis_ws/weights/left_camera_info.yaml" />
+    <param name="camera_info_url_right" value="file:///home/nguyen/thesis_ws/weights/right_camera_info.yaml" />
+  </node>
+
+  <!-- Display raw (not rectified) image -->
+  <!--<node pkg="image_view" type="image_view" name="image_view_left_raw">
+     <remap from="image" to="/stereo_camera/left/image_raw" />
+   </node>
+  <node pkg="image_view" type="image_view" name="image_view_right_raw">
+     <remap from="image" to="/stereo_camera/right/image_raw" />
+  </node> -->
+
+  <!-- Record IMU and StereoCam Data -->
+  <!-- <node pkg="rosbag" type="record" name="bag_record_left"
+      args="-o /home/nguyen/hien/dataset/ /stereo_camera/left/camera_info /stereo_camera/left/image_raw /stereo_camera/right/camera_info /stereo_camera/right/image_raw" > 
+  </node> -->
+
+  <node ns="stereo_camera" pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc" output="screen">
+      <remap from="left/image" to="left/image_raw"/>
+      <remap from="right/image" to="right/image_raw"/>
+  </node>
+
+  <!-- <node pkg="image_view" type="stereo_view" name="stereo_view">
+      <remap from="stereo" to="stereo_camera"/>
+      <remap from="image" to="image_rect"/>
+  </node> -->
+
+  <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure"/>
+  
+  <node pkg="data_pkg" name="My_Detection" type="detection.py" output="screen"/>
+  
+  <node pkg="data_pkg" name="My_Avoidance" type="avoidance.py" output="screen"/>
+  
+  <node pkg="data_pkg" name="My_Lane" type="lane_detection.py" output="screen"/>
+
+  <!--<node pkg="data_pkg" name="serialPort_node" type="serialPort_node" output="screen"/>-->
+
+</launch>

@@ -1,0 +1,8 @@
+prefix=/home/nguyen/thesis_ws/devel
+
+Name: camera1394stereo
+Description: Description of camera1394stereo
+Version: 1.0.6
+Cflags: -I/home/nguyen/thesis_ws/devel/include
+Libs: -L${prefix}/lib -lcamera1394stereo
+Requires: 

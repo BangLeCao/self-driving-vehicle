@@ -1,0 +1,8 @@
+prefix=/home/nguyen/thesis_ws/install
+
+Name: camera1394stereo
+Description: Description of camera1394stereo
+Version: 1.0.6
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lcamera1394stereo
+Requires: 

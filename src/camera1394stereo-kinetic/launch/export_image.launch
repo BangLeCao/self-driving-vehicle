@@ -1,0 +1,9 @@
+<launch>
+
+  <node pkg="rosbag" type="play" name="rosbag" required="true" args="$(find camera1394stereo)/rectified.bag"/>
+  <node name="extract" pkg="image_view" type="extract_images" respawn="false" required="true" output="screen" cwd="ROS_HOME">
+    <param name="sec_per_frame" value="0.02"/>
+    <remap from="image" to="/stereo_camera/right/image_rect"/>
+  </node>
+
+</launch>

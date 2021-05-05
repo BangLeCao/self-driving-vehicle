@@ -1,0 +1,10 @@
+<launch>
+
+    <node pkg="image_view" type="image_view" name="image_view_left_rect">
+        <remap from="image" to="/stereo_camera/left/image_rect" />
+    </node>
+    <node pkg="image_view" type="image_view" name="image_view_right_rect">
+       <remap from="image" to="/stereo_camera/right/image_rect" />
+    </node>
+
+</launch>

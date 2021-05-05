@@ -1,0 +1,7 @@
+<launch>
+
+    <node pkg="rosbag" type="record" name="bag_record"
+        args="-o /home/nguyen/thesis_ws/dataset/ /stereo_camera/left/image_raw /stereo_camera/right/image_raw /stereo_camera/left/camera_info /stereo_camera/right/camera_info /VDATA" > 
+    </node>
+
+</launch>

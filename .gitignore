@@ -1,0 +1,12 @@
+dlib-19.6/
+opencv_build/
+.vscode/
+
+*.o
+*.cmake
+*.make
+*.bag
+map_out*
+a.out
+data.txt
+.catkin_workspace

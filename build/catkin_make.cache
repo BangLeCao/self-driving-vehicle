@@ -1,0 +1,2 @@
+camera1394stereo-kinetic:data_pkg
+-DCATKIN_DEVEL_PREFIX=/home/nguyen/thesis_ws/devel -DCMAKE_INSTALL_PREFIX=/home/nguyen/thesis_ws/install -G Unix Makefiles
