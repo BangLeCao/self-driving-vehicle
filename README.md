@@ -1,5 +1,5 @@
 # self-driving-vehicle
-The thesis presents the process of building the algorithm to follow the phanned trajectory, detect, track and avoid obstacles for autonomous vehicle model
+The repo presents the process of building the algorithm to follow the phanned trajectory, detect, track and avoid obstacles for autonomous vehicle model
 We use the GPS RTK model to determine the location of the model, the STM32F4 microprocessor to control the orbit tracking model using the Stanley Controller algorithm,
 together with the LoRa module to perform wireless data transmission between the Base station and Rover station as well as between model and PC. Fuzzy PID and PI controllers are used to get the best motor control results.
 
